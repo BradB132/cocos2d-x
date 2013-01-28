@@ -297,6 +297,9 @@ public:
     void setContentScaleFactor(float scaleFactor);
     float getContentScaleFactor(void);
 
+	/** sets the openGL clear color */
+	void setBackgroundColor(ccColor3B background);
+	
 public:
     /** CCScheduler associated with this director
      @since v2.0

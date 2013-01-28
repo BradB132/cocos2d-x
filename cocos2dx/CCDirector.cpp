@@ -821,6 +821,11 @@ void CCDirector::setContentScaleFactor(float scaleFactor)
     }
 }
 
+void CCDirector::setBackgroundColor(ccColor3B background)
+{
+	glClearColor(background.r/255.0f, background.g/255.0f, background.b/255.0f, 1.0f);
+}
+
 CCNode* CCDirector::getNotificationNode() 
 { 
     return m_pNotificationNode; 
