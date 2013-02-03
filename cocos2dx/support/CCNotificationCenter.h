@@ -61,6 +61,7 @@ public:
      *  @param name The name of this notification. 
      */
     void removeObserver(CCObject *target,const char *name);
+	void removeObserver(CCObject *target);
     
     /** @brief Registers one hander for script binding.
      *  @note Only supports Lua Binding now.
