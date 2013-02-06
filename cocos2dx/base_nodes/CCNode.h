@@ -722,6 +722,8 @@ public:
      @since v0.7.1
      */
     CCPoint convertTouchToNodeSpaceAR(CCTouch * touch);
+	
+	bool hitTest(const CCPoint& worldPoint);
         
     /** Schedules for script. */
     void scheduleUpdateWithPriorityLua(int nHandler, int priority);

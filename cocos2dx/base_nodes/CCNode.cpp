@@ -1239,6 +1239,15 @@ CCPoint CCNode::convertTouchToNodeSpaceAR(CCTouch *touch)
     return this->convertToNodeSpaceAR(point);
 }
 
+bool CCNode::hitTest(const CCPoint& worldPoint)
+{
+	CCPoint nodePoint = convertToNodeSpace(worldPoint);
+	return (nodePoint.x >= 0 &&
+			nodePoint.y >= 0 &&
+			nodePoint.x <= m_obContentSize.width &&
+			nodePoint.y <= m_obContentSize.height);
+}
+
 // MARMALADE ADDED
 void CCNode::updateTransform()
 {
