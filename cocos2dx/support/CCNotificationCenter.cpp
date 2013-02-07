@@ -82,7 +82,7 @@ bool CCNotificationCenter::observerExisted(CCObject *target,const char *name)
 // observer functions
 //
 void CCNotificationCenter::addObserver(CCObject *target, 
-                                       SEL_CallFuncO selector,
+                                       SEL_NoteHandler selector,
                                        const char *name,
                                        CCObject *obj)
 {
@@ -145,9 +145,9 @@ void CCNotificationCenter::unregisterScriptObserver(void)
     m_scriptHandler = 0;
 }
 
-void CCNotificationCenter::postNotification(const char *name, CCObject *object)
+void CCNotificationCenter::postNotification(const char *name, CCDictionary* params, CCObject *object)
 {
-    CCArray* ObserversCopy = CCArray::createWithCapacity(m_observers->count());
+	CCArray* ObserversCopy = CCArray::createWithCapacity(m_observers->count());
     ObserversCopy->addObjectsFromArray(m_observers);
     CCObject* obj = NULL;
     CCARRAY_FOREACH(ObserversCopy, obj)
@@ -157,9 +157,9 @@ void CCNotificationCenter::postNotification(const char *name, CCObject *object)
             continue;
         
         if (!strcmp(name,observer->getName()) && (observer->getObject() == object || observer->getObject() == NULL || object == NULL))
-            observer->performSelector(object);
+            observer->performSelector(name, params);
     }
-
+	
     if (m_scriptHandler)
     {
         CCScriptEngineProtocol* engine = CCScriptEngineManager::sharedManager()->getScriptEngine();
@@ -167,9 +167,14 @@ void CCNotificationCenter::postNotification(const char *name, CCObject *object)
     }
 }
 
+void CCNotificationCenter::postNotification(const char *name, CCObject *object)
+{
+    this->postNotification(name, NULL, object);
+}
+
 void CCNotificationCenter::postNotification(const char *name)
 {
-    this->postNotification(name,NULL);
+    this->postNotification(name, NULL, NULL);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -178,7 +183,7 @@ void CCNotificationCenter::postNotification(const char *name)
 ///
 ////////////////////////////////////////////////////////////////////////////////
 CCNotificationObserver::CCNotificationObserver(CCObject *target, 
-                                               SEL_CallFuncO selector,
+                                               SEL_NoteHandler selector,
                                                const char *name,
                                                CCObject *obj)
 {
@@ -198,16 +203,10 @@ CCNotificationObserver::~CCNotificationObserver()
     CC_SAFE_DELETE_ARRAY(m_name);
 }
 
-void CCNotificationObserver::performSelector(CCObject *obj)
+void CCNotificationObserver::performSelector(const char* noteName, CCDictionary* params)
 {
-    if (m_target)
-    {
-		if (obj) {
-			(m_target->*m_selector)(obj);
-		} else {
-			(m_target->*m_selector)(m_object);
-		}
-    }
+	if (m_target)
+		(m_target->*m_selector)(noteName, params);
 }
 
 CCObject *CCNotificationObserver::getTarget()
@@ -215,7 +214,7 @@ CCObject *CCNotificationObserver::getTarget()
     return m_target;
 }
 
-SEL_CallFuncO CCNotificationObserver::getSelector()
+SEL_NoteHandler CCNotificationObserver::getSelector()
 {
     return m_selector;
 }

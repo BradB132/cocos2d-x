@@ -26,6 +26,7 @@ THE SOFTWARE.
 #define __CCOBJECT_H__
 
 #include "platform/CCPlatformMacros.h"
+#include "NoPLRuntime.h"
 
 NS_CC_BEGIN
 
@@ -38,6 +39,7 @@ class CCZone;
 class CCObject;
 class CCNode;
 class CCEvent;
+class CCDictionary;
 
 class CC_DLL CCCopying
 {
@@ -70,6 +72,10 @@ public:
     virtual bool isEqual(const CCObject* pObject);
 
     virtual void update(float dt) {CC_UNUSED_PARAM(dt);};
+	
+	//NoPL integration
+	virtual NoPL_FunctionValue evaluateFunction(const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc);
+	virtual NoPL_FunctionValue evaluateSubscript(const char* functionName, const NoPL_FunctionValue* index);
     
     friend class CCAutoreleasePool;
 };
@@ -80,6 +86,7 @@ typedef void (CCObject::*SEL_CallFunc)();
 typedef void (CCObject::*SEL_CallFuncN)(CCNode*);
 typedef void (CCObject::*SEL_CallFuncND)(CCNode*, void*);
 typedef void (CCObject::*SEL_CallFuncO)(CCObject*);
+typedef void (CCObject::*SEL_NoteHandler)(const char* noteName, CCDictionary* params);
 typedef void (CCObject::*SEL_MenuHandler)(CCObject*);
 typedef void (CCObject::*SEL_EventHandler)(CCEvent*);
 typedef int (CCObject::*SEL_Compare)(CCObject*);
@@ -89,6 +96,7 @@ typedef int (CCObject::*SEL_Compare)(CCObject*);
 #define callfuncN_selector(_SELECTOR) (SEL_CallFuncN)(&_SELECTOR)
 #define callfuncND_selector(_SELECTOR) (SEL_CallFuncND)(&_SELECTOR)
 #define callfuncO_selector(_SELECTOR) (SEL_CallFuncO)(&_SELECTOR)
+#define note_selector(_SELECTOR) (SEL_NoteHandler)(&_SELECTOR)
 #define menu_selector(_SELECTOR) (SEL_MenuHandler)(&_SELECTOR)
 #define event_selector(_SELECTOR) (SEL_EventHandler)(&_SELECTOR)
 #define compare_selector(_SELECTOR) (SEL_Compare)(&_SELECTOR)

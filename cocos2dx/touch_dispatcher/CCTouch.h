@@ -53,6 +53,9 @@ public:
     /** returns the previous touch location in screen coordinates */
     CCPoint getPreviousLocationInView() const;
     
+	//NoPL integration
+	virtual NoPL_FunctionValue evaluateFunction(const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc);
+	
     void setTouchInfo(int id, float x, float y)
     {
         m_nId = id;

@@ -27,6 +27,7 @@ THE SOFTWARE.
 
 #include "cocoa/CCObject.h"
 #include "cocoa/CCArray.h"
+#include "cocoa/CCDictionary.h"
 
 NS_CC_BEGIN
 
@@ -52,7 +53,7 @@ public:
      *  @param obj The extra parameter which will be passed to the callback function.
      */
     void addObserver(CCObject *target, 
-                     SEL_CallFuncO selector,
+                     SEL_NoteHandler selector,
                      const char *name,
                      CCObject *obj);
 
@@ -83,6 +84,13 @@ public:
      */
     void postNotification(const char *name, CCObject *object);
     
+	/** @brief Posts one notification event by name.
+     *  @param name The name of this notification.
+	 *  @param params The dictionary of parameters sent to each receiver.
+     *  @param object The extra parameter.
+     */
+    void postNotification(const char *name, CCDictionary* params, CCObject *object);
+	
     /** @brief Gets script handler.
      *  @note Only supports Lua Binding now.
      *  @return The script handle.
@@ -110,7 +118,7 @@ public:
      *  @param obj The extra parameter which will be passed to the callback function.
      */
     CCNotificationObserver(CCObject *target, 
-                           SEL_CallFuncO selector,
+                           SEL_NoteHandler selector,
                            const char *name,
                            CCObject *obj);
 
@@ -118,10 +126,11 @@ public:
     ~CCNotificationObserver();      
     
     /** Invokes the callback function of this observer */
-    void performSelector(CCObject *obj);
+	void performSelector(const char* noteName, CCDictionary* params);
+	
 private:
     CC_PROPERTY_READONLY(CCObject *, m_target, Target);
-    CC_PROPERTY_READONLY(SEL_CallFuncO, m_selector, Selector);
+    CC_PROPERTY_READONLY(SEL_NoteHandler, m_selector, Selector);
     CC_PROPERTY_READONLY(char *, m_name, Name);
     CC_PROPERTY_READONLY(CCObject *, m_object, Object);
 };

@@ -115,4 +115,21 @@ bool CCObject::isEqual(const CCObject *pObject)
     return this == pObject;
 }
 
+NoPL_FunctionValue CCObject::evaluateFunction(const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc)
+{
+	//default implementation returns nothing
+	NoPL_FunctionValue val;
+	val.type = NoPL_DataType_Uninitialized;
+	return val;
+}
+
+NoPL_FunctionValue CCObject::evaluateSubscript(const char* functionName, const NoPL_FunctionValue* index)
+{
+	//default implementation returns nothing
+	NoPL_FunctionValue val;
+	val.type = NoPL_DataType_Uninitialized;
+	return val;
+}
+
+
 NS_CC_END

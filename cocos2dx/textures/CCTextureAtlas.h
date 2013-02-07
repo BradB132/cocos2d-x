@@ -201,7 +201,7 @@ public:
     void drawQuads();
     /** listen the event that coming to foreground on Android
      */
-    void listenBackToForeground(CCObject *obj);
+    void listenBackToForeground(const char* noteName, CCDictionary* params);
 private:
     void setupIndices();
     void mapBuffers();

@@ -58,4 +58,49 @@ CCPoint CCTouch::getDelta() const
     return ccpSub(getLocation(), getPreviousLocation()); 
 }
 
+//NoPL integration
+NoPL_FunctionValue CCTouch::evaluateFunction(const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc)
+{
+	NoPL_FunctionValue returnVal;
+	returnVal.type = NoPL_DataType_Uninitialized;
+	
+	if(argc == 0)
+	{
+		if(!strcmp(functionName, "x"))
+		{
+			returnVal.numberValue = getLocation().x;
+			returnVal.type = NoPL_DataType_Number;
+		}
+		else if(!strcmp(functionName, "y"))
+		{
+			returnVal.numberValue = getLocation().y;
+			returnVal.type = NoPL_DataType_Number;
+		}
+		else if(!strcmp(functionName, "prevX"))
+		{
+			returnVal.numberValue = getPreviousLocation().x;
+			returnVal.type = NoPL_DataType_Number;
+		}
+		else if(!strcmp(functionName, "prevY"))
+		{
+			returnVal.numberValue = getPreviousLocation().y;
+			returnVal.type = NoPL_DataType_Number;
+		}
+		else if(!strcmp(functionName, "dx"))
+		{
+			returnVal.numberValue = getLocation().x - getPreviousLocation().x;
+			returnVal.type = NoPL_DataType_Number;
+		}
+		else if(!strcmp(functionName, "dy"))
+		{
+			returnVal.numberValue = getLocation().y - getPreviousLocation().y;
+			returnVal.type = NoPL_DataType_Number;
+		}
+	}
+	
+	if(returnVal.type == NoPL_DataType_Uninitialized)
+		return CCObject::evaluateFunction(functionName, argv, argc);
+	return returnVal;
+}
+
 NS_CC_END

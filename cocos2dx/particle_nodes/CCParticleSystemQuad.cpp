@@ -68,7 +68,7 @@ bool CCParticleSystemQuad::initWithTotalParticles(unsigned int numberOfParticles
         
         // Need to listen the event only when not use batchnode, because it will use VBO
         CCNotificationCenter::sharedNotificationCenter()->addObserver(this,
-                                                                      callfuncO_selector(CCParticleSystemQuad::listenBackToForeground),
+                                                                      note_selector(CCParticleSystemQuad::listenBackToForeground),
                                                                       EVNET_COME_TO_FOREGROUND,
                                                                       NULL);
         
@@ -515,7 +515,7 @@ void CCParticleSystemQuad::setupVBO()
 
 #endif
 
-void CCParticleSystemQuad::listenBackToForeground(CCObject *obj)
+void CCParticleSystemQuad::listenBackToForeground(const char* noteName, CCDictionary* params)
 {
 #if CC_TEXTURE_ATLAS_USE_VAO
         setupVBOandVAO();

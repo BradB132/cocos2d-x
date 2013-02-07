@@ -177,7 +177,7 @@ bool CCTextureAtlas::initWithTexture(CCTexture2D *texture, unsigned int capacity
     
     // listen the event when app go to background
     CCNotificationCenter::sharedNotificationCenter()->addObserver(this,
-                                                           callfuncO_selector(CCTextureAtlas::listenBackToForeground),
+                                                           note_selector(CCTextureAtlas::listenBackToForeground),
                                                            EVNET_COME_TO_FOREGROUND,
                                                            NULL);
 
@@ -194,10 +194,10 @@ bool CCTextureAtlas::initWithTexture(CCTexture2D *texture, unsigned int capacity
     return true;
 }
 
-void CCTextureAtlas::listenBackToForeground(CCObject *obj)
+void CCTextureAtlas::listenBackToForeground(const char* noteName, CCDictionary* params)
 {  
 #if CC_TEXTURE_ATLAS_USE_VAO
-    setupVBOandVAO();    
+    setupVBOandVAO();
 #else    
     setupVBO();
 #endif

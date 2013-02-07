@@ -375,6 +375,10 @@ public:
      */
     static CCDictionary* createWithContentsOfFileThreadSafe(const char *pFileName);
 
+	//NoPL integration
+	virtual NoPL_FunctionValue evaluateFunction(const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc);
+	virtual NoPL_FunctionValue evaluateSubscript(const char* functionName, const NoPL_FunctionValue* index);
+	
 private:
     /** 
      *  For internal usage, invoked by setObject.
