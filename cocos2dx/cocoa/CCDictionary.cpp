@@ -447,20 +447,23 @@ NoPL_FunctionValue CCDictionary::evaluateFunction(const char* functionName, cons
 	return returnVal;
 }
 
-NoPL_FunctionValue CCDictionary::evaluateSubscript(const char* functionName, const NoPL_FunctionValue* index)
+NoPL_FunctionValue CCDictionary::evaluateSubscript(const NoPL_FunctionValue index)
 {
 	NoPL_FunctionValue returnVal;
 	returnVal.type = NoPL_DataType_Uninitialized;
 	
-	CCObject* obj = objectForKey(functionName);
-	if(obj)
+	if(index.type == NoPL_DataType_String)
 	{
-		returnVal.pointerValue = obj;
-		returnVal.type = NoPL_DataType_Pointer;
+		CCObject* obj = objectForKey(index.stringValue);
+		if(obj)
+		{
+			returnVal.pointerValue = obj;
+			returnVal.type = NoPL_DataType_Pointer;
+		}
 	}
 	
 	if(returnVal.type == NoPL_DataType_Uninitialized)
-		return CCObject::evaluateSubscript(functionName, index);
+		return CCObject::evaluateSubscript(index);
 	return returnVal;
 }
 

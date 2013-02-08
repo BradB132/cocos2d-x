@@ -75,7 +75,7 @@ public:
 	
 	//NoPL integration
 	virtual NoPL_FunctionValue evaluateFunction(const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc);
-	virtual NoPL_FunctionValue evaluateSubscript(const char* functionName, const NoPL_FunctionValue* index);
+	virtual NoPL_FunctionValue evaluateSubscript(const NoPL_FunctionValue index);
     
     friend class CCAutoreleasePool;
 };

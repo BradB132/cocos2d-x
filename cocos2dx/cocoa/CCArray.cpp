@@ -397,4 +397,48 @@ CCObject* CCArray::copyWithZone(CCZone* pZone)
     return pArray;
 }
 
+//NoPL integration
+NoPL_FunctionValue CCArray::evaluateFunction(const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc)
+{
+	NoPL_FunctionValue returnVal;
+	returnVal.type = NoPL_DataType_Uninitialized;
+	
+	if (argc == 0)
+	{
+		if(!strcmp(functionName, "count") ||
+		   !strcmp(functionName, "size") ||
+		   !strcmp(functionName, "length") )
+		{
+			returnVal.numberValue = (float)count();
+			returnVal.type = NoPL_DataType_Number;
+		}
+	}
+	
+	if(returnVal.type == NoPL_DataType_Uninitialized)
+		return CCObject::evaluateFunction(functionName, argv, argc);
+	return returnVal;
+}
+
+NoPL_FunctionValue CCArray::evaluateSubscript(const NoPL_FunctionValue index)
+{
+	NoPL_FunctionValue returnVal;
+	returnVal.type = NoPL_DataType_Uninitialized;
+	
+	if(index.type == NoPL_DataType_Number &&
+	   index.numberValue >= 0 &&
+	   index.numberValue < count())
+	{
+		CCObject* obj = objectAtIndex((unsigned int)index.numberValue);
+		if(obj)
+		{
+			returnVal.pointerValue = obj;
+			returnVal.type = NoPL_DataType_Pointer;
+		}
+	}
+	
+	if(returnVal.type == NoPL_DataType_Uninitialized)
+		return CCObject::evaluateSubscript(index);
+	return returnVal;
+}
+
 NS_CC_END

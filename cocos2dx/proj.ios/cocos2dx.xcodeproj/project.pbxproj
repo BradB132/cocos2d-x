@@ -291,6 +291,30 @@
 		D43F7F8A15C7D8BA00D713FC /* CCTouch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D43F7F8915C7D8BA00D713FC /* CCTouch.cpp */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9BF4BD4C16C47E2B0061469B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A22CC91A16C3339B00153EB4 /* NoPL_Runtime.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A261C28E15C0E845008AE0C4;
+			remoteInfo = NoPL_Runtime_testing;
+		};
+		9BF4BD4E16C47E2B0061469B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A22CC91A16C3339B00153EB4 /* NoPL_Runtime.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A24F59E6163098DB00FC9181;
+			remoteInfo = NoPLRuntime;
+		};
+		9BF4BD5016C47E2B0061469B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A22CC91A16C3339B00153EB4 /* NoPL_Runtime.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9B84F86516BDF21E00F34DF1;
+			remoteInfo = "NoPLRuntime(arm)";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		154269DA15B5653000712A7F /* CCNotificationCenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCNotificationCenter.cpp; sourceTree = "<group>"; };
 		154269DB15B5653000712A7F /* CCNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNotificationCenter.h; sourceTree = "<group>"; };
@@ -575,8 +599,8 @@
 		15FBEE6A164BBB20008CB2C3 /* CCDrawNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDrawNode.h; sourceTree = "<group>"; };
 		15FBEE6C164BBF77008CB2C3 /* CCDrawNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCDrawNode.cpp; sourceTree = "<group>"; };
 		2628297915EC7064002C4240 /* ccTypeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccTypeInfo.h; sourceTree = "<group>"; };
-		A22CC91A16C3339B00153EB4 /* NoPL_Runtime.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = file; name = NoPL_Runtime.xcodeproj; path = ../../../NoPLGenerator/NoPL_repo/NoPL_Runtime/NoPL_Runtime.xcodeproj; sourceTree = "<group>"; };
-		A22CC91D16C3376000153EB4 /* libNoPLRuntime(arm).a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libNoPLRuntime(arm).a"; path = "../../../NoPLGenerator/NoPL_repo/NoPL_Runtime/build/Release-iphoneos/libNoPLRuntime(arm).a"; sourceTree = "<group>"; };
+		A22CC91A16C3339B00153EB4 /* NoPL_Runtime.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NoPL_Runtime.xcodeproj; path = ../../../NoPLGenerator/NoPL_repo/NoPL_Runtime/NoPL_Runtime.xcodeproj; sourceTree = "<group>"; };
+		A22CC91D16C3376000153EB4 /* libNoPLRuntime(arm).a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libNoPLRuntime(arm).a"; path = "../../../NoPLGenerator/NoPL_repo/NoPL_Runtime/build/Release-iphoneos/libNoPLRuntime(arm).a"; sourceTree = "<group>"; };
 		D43F7F8915C7D8BA00D713FC /* CCTouch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCTouch.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1166,6 +1190,16 @@
 			path = draw_nodes;
 			sourceTree = "<group>";
 		};
+		9BF4BD4716C47E2B0061469B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9BF4BD4D16C47E2B0061469B /* NoPL_Runtime */,
+				9BF4BD4F16C47E2B0061469B /* libNoPLRuntime.a */,
+				9BF4BD5116C47E2B0061469B /* libNoPLRuntime(arm).a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1373,12 +1407,42 @@
 			mainGroup = 1551A334158F2AB200E66CFE;
 			productRefGroup = 1551A340158F2AB200E66CFE /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9BF4BD4716C47E2B0061469B /* Products */;
+					ProjectRef = A22CC91A16C3339B00153EB4 /* NoPL_Runtime.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1551A33E158F2AB200E66CFE /* cocos2dx */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9BF4BD4D16C47E2B0061469B /* NoPL_Runtime */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = NoPL_Runtime;
+			remoteRef = 9BF4BD4C16C47E2B0061469B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9BF4BD4F16C47E2B0061469B /* libNoPLRuntime.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libNoPLRuntime.a;
+			remoteRef = 9BF4BD4E16C47E2B0061469B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9BF4BD5116C47E2B0061469B /* libNoPLRuntime(arm).a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libNoPLRuntime(arm).a";
+			remoteRef = 9BF4BD5016C47E2B0061469B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1551A33B158F2AB200E66CFE /* Sources */ = {

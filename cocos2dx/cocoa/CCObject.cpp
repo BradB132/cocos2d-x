@@ -123,7 +123,7 @@ NoPL_FunctionValue CCObject::evaluateFunction(const char* functionName, const No
 	return val;
 }
 
-NoPL_FunctionValue CCObject::evaluateSubscript(const char* functionName, const NoPL_FunctionValue* index)
+NoPL_FunctionValue CCObject::evaluateSubscript(const NoPL_FunctionValue index)
 {
 	//default implementation returns nothing
 	NoPL_FunctionValue val;
