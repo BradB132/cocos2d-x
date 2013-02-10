@@ -300,6 +300,9 @@ public:
 	/** sets the openGL clear color */
 	void setBackgroundColor(ccColor3B background);
 	
+	//NoPL integration
+	virtual NoPL_FunctionValue evaluateFunction(const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc);
+	
 public:
     /** CCScheduler associated with this director
      @since v2.0

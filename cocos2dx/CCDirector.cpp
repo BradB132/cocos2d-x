@@ -826,6 +826,35 @@ void CCDirector::setBackgroundColor(ccColor3B background)
 	glClearColor(background.r/255.0f, background.g/255.0f, background.b/255.0f, 1.0f);
 }
 
+NoPL_FunctionValue CCDirector::evaluateFunction(const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc)
+{
+	NoPL_FunctionValue returnVal;
+	returnVal.type = NoPL_DataType_Uninitialized;
+	
+	if (argc == 0)
+	{
+		if(!strcmp(functionName, "dt"))
+		{
+			returnVal.numberValue = m_fDeltaTime;
+			returnVal.type = NoPL_DataType_Number;
+		}
+		else if(!strcmp(functionName, "sizeX"))
+		{
+			returnVal.numberValue = m_obWinSizeInPoints.width;
+			returnVal.type = NoPL_DataType_Number;
+		}
+		else if(!strcmp(functionName, "sizeY"))
+		{
+			returnVal.numberValue = m_obWinSizeInPoints.height;
+			returnVal.type = NoPL_DataType_Number;
+		}
+	}
+	
+	if(returnVal.type == NoPL_DataType_Uninitialized)
+		return CCObject::evaluateFunction(functionName, argv, argc);
+	return returnVal;
+}
+
 CCNode* CCDirector::getNotificationNode() 
 { 
     return m_pNotificationNode; 
