@@ -287,6 +287,18 @@
 		15FBEE6B164BBB20008CB2C3 /* CCDrawNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 15FBEE6A164BBB20008CB2C3 /* CCDrawNode.h */; };
 		15FBEE6D164BBF77008CB2C3 /* CCDrawNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15FBEE6C164BBF77008CB2C3 /* CCDrawNode.cpp */; };
 		2628297A15EC7064002C4240 /* ccTypeInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 2628297915EC7064002C4240 /* ccTypeInfo.h */; };
+		9BCB008F16D2CDA20031840C /* CDAudioManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BCB001F16D2CDA20031840C /* CDAudioManager.h */; };
+		9BCB009016D2CDA20031840C /* CDAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB002016D2CDA20031840C /* CDAudioManager.m */; };
+		9BCB009116D2CDA20031840C /* CDConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BCB002116D2CDA20031840C /* CDConfig.h */; };
+		9BCB009216D2CDA20031840C /* CDOpenALSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BCB002216D2CDA20031840C /* CDOpenALSupport.h */; };
+		9BCB009316D2CDA20031840C /* CDOpenALSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB002316D2CDA20031840C /* CDOpenALSupport.m */; };
+		9BCB009416D2CDA20031840C /* CocosDenshion.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BCB002416D2CDA20031840C /* CocosDenshion.h */; };
+		9BCB009516D2CDA20031840C /* CocosDenshion.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB002516D2CDA20031840C /* CocosDenshion.m */; };
+		9BCB009616D2CDA20031840C /* SimpleAudioEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB002616D2CDA20031840C /* SimpleAudioEngine.mm */; };
+		9BCB009716D2CDA20031840C /* SimpleAudioEngine_objc.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BCB002716D2CDA20031840C /* SimpleAudioEngine_objc.h */; };
+		9BCB009816D2CDA20031840C /* SimpleAudioEngine_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB002816D2CDA20031840C /* SimpleAudioEngine_objc.m */; };
+		9BCB00CD16D2CFB30031840C /* Export.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BCB00CB16D2CFB30031840C /* Export.h */; };
+		9BCB00CE16D2CFB30031840C /* SimpleAudioEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BCB00CC16D2CFB30031840C /* SimpleAudioEngine.h */; };
 		A22CC91E16C3376000153EB4 /* libNoPLRuntime(arm).a in Frameworks */ = {isa = PBXBuildFile; fileRef = A22CC91D16C3376000153EB4 /* libNoPLRuntime(arm).a */; };
 		D43F7F8A15C7D8BA00D713FC /* CCTouch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D43F7F8915C7D8BA00D713FC /* CCTouch.cpp */; };
 /* End PBXBuildFile section */
@@ -599,6 +611,18 @@
 		15FBEE6A164BBB20008CB2C3 /* CCDrawNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDrawNode.h; sourceTree = "<group>"; };
 		15FBEE6C164BBF77008CB2C3 /* CCDrawNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCDrawNode.cpp; sourceTree = "<group>"; };
 		2628297915EC7064002C4240 /* ccTypeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccTypeInfo.h; sourceTree = "<group>"; };
+		9BCB001F16D2CDA20031840C /* CDAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAudioManager.h; sourceTree = "<group>"; };
+		9BCB002016D2CDA20031840C /* CDAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAudioManager.m; sourceTree = "<group>"; };
+		9BCB002116D2CDA20031840C /* CDConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDConfig.h; sourceTree = "<group>"; };
+		9BCB002216D2CDA20031840C /* CDOpenALSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDOpenALSupport.h; sourceTree = "<group>"; };
+		9BCB002316D2CDA20031840C /* CDOpenALSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDOpenALSupport.m; sourceTree = "<group>"; };
+		9BCB002416D2CDA20031840C /* CocosDenshion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosDenshion.h; sourceTree = "<group>"; };
+		9BCB002516D2CDA20031840C /* CocosDenshion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosDenshion.m; sourceTree = "<group>"; };
+		9BCB002616D2CDA20031840C /* SimpleAudioEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SimpleAudioEngine.mm; sourceTree = "<group>"; };
+		9BCB002716D2CDA20031840C /* SimpleAudioEngine_objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAudioEngine_objc.h; sourceTree = "<group>"; };
+		9BCB002816D2CDA20031840C /* SimpleAudioEngine_objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAudioEngine_objc.m; sourceTree = "<group>"; };
+		9BCB00CB16D2CFB30031840C /* Export.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Export.h; sourceTree = "<group>"; };
+		9BCB00CC16D2CFB30031840C /* SimpleAudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAudioEngine.h; sourceTree = "<group>"; };
 		A22CC91A16C3339B00153EB4 /* NoPL_Runtime.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NoPL_Runtime.xcodeproj; path = ../../../NoPLGenerator/NoPL_repo/NoPL_Runtime/NoPL_Runtime.xcodeproj; sourceTree = "<group>"; };
 		A22CC91D16C3376000153EB4 /* libNoPLRuntime(arm).a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libNoPLRuntime(arm).a"; path = "../../../NoPLGenerator/NoPL_repo/NoPL_Runtime/build/Release-iphoneos/libNoPLRuntime(arm).a"; sourceTree = "<group>"; };
 		D43F7F8915C7D8BA00D713FC /* CCTouch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCTouch.cpp; sourceTree = "<group>"; };
@@ -622,6 +646,7 @@
 			children = (
 				A22CC91A16C3339B00153EB4 /* NoPL_Runtime.xcodeproj */,
 				1551A873158F2B4700E66CFE /* cocos2dx-Prefix.pch */,
+				9BCB000516D2CDA20031840C /* CocosDenshion */,
 				1551A353158F2ADE00E66CFE /* cocos2dx */,
 				1551A341158F2AB200E66CFE /* Frameworks */,
 				1551A340158F2AB200E66CFE /* Products */,
@@ -1190,6 +1215,42 @@
 			path = draw_nodes;
 			sourceTree = "<group>";
 		};
+		9BCB000516D2CDA20031840C /* CocosDenshion */ = {
+			isa = PBXGroup;
+			children = (
+				9BCB00CA16D2CFB30031840C /* include */,
+				9BCB001E16D2CDA20031840C /* ios */,
+			);
+			name = CocosDenshion;
+			path = ../../CocosDenshion;
+			sourceTree = "<group>";
+		};
+		9BCB001E16D2CDA20031840C /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				9BCB001F16D2CDA20031840C /* CDAudioManager.h */,
+				9BCB002016D2CDA20031840C /* CDAudioManager.m */,
+				9BCB002116D2CDA20031840C /* CDConfig.h */,
+				9BCB002216D2CDA20031840C /* CDOpenALSupport.h */,
+				9BCB002316D2CDA20031840C /* CDOpenALSupport.m */,
+				9BCB002416D2CDA20031840C /* CocosDenshion.h */,
+				9BCB002516D2CDA20031840C /* CocosDenshion.m */,
+				9BCB002616D2CDA20031840C /* SimpleAudioEngine.mm */,
+				9BCB002716D2CDA20031840C /* SimpleAudioEngine_objc.h */,
+				9BCB002816D2CDA20031840C /* SimpleAudioEngine_objc.m */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		9BCB00CA16D2CFB30031840C /* include */ = {
+			isa = PBXGroup;
+			children = (
+				9BCB00CB16D2CFB30031840C /* Export.h */,
+				9BCB00CC16D2CFB30031840C /* SimpleAudioEngine.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
 		9BF4BD4716C47E2B0061469B /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -1365,6 +1426,13 @@
 				15FBEE5C164B87F2008CB2C3 /* CCClippingNode.h in Headers */,
 				15FBEE69164BBA98008CB2C3 /* CCDrawingPrimitives.h in Headers */,
 				15FBEE6B164BBB20008CB2C3 /* CCDrawNode.h in Headers */,
+				9BCB008F16D2CDA20031840C /* CDAudioManager.h in Headers */,
+				9BCB009116D2CDA20031840C /* CDConfig.h in Headers */,
+				9BCB009216D2CDA20031840C /* CDOpenALSupport.h in Headers */,
+				9BCB009416D2CDA20031840C /* CocosDenshion.h in Headers */,
+				9BCB009716D2CDA20031840C /* SimpleAudioEngine_objc.h in Headers */,
+				9BCB00CD16D2CFB30031840C /* Export.h in Headers */,
+				9BCB00CE16D2CFB30031840C /* SimpleAudioEngine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1424,7 +1492,8 @@
 		9BF4BD4D16C47E2B0061469B /* NoPL_Runtime */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.executable";
-			path = NoPL_Runtime;
+			name = NoPL_Runtime;
+			path = NoPL_Runtime_testing;
 			remoteRef = 9BF4BD4C16C47E2B0061469B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -1571,6 +1640,11 @@
 				15FBEE5F164B8B5B008CB2C3 /* CCClippingNode.cpp in Sources */,
 				15FBEE68164BBA98008CB2C3 /* CCDrawingPrimitives.cpp in Sources */,
 				15FBEE6D164BBF77008CB2C3 /* CCDrawNode.cpp in Sources */,
+				9BCB009016D2CDA20031840C /* CDAudioManager.m in Sources */,
+				9BCB009316D2CDA20031840C /* CDOpenALSupport.m in Sources */,
+				9BCB009516D2CDA20031840C /* CocosDenshion.m in Sources */,
+				9BCB009616D2CDA20031840C /* SimpleAudioEngine.mm in Sources */,
+				9BCB009816D2CDA20031840C /* SimpleAudioEngine_objc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1650,7 +1724,11 @@
 					"\"$(SRCROOT)/../../../NoPLGenerator/NoPL_repo/NoPL_Runtime/include\"",
 					"\"$(SRCROOT)/../../../NoPLGenerator/NoPL_repo/NoPLc/include\"",
 				);
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../CocosDenshion/third_party/blackberry/libraries/armle-v7\"",
+					"\"$(SRCROOT)/../../CocosDenshion/third_party/blackberry/libraries/x86\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1675,7 +1753,11 @@
 					"\"$(SRCROOT)/../../../NoPLGenerator/NoPL_repo/NoPL_Runtime/include\"",
 					"\"$(SRCROOT)/../../../NoPLGenerator/NoPL_repo/NoPLc/include\"",
 				);
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../CocosDenshion/third_party/blackberry/libraries/armle-v7\"",
+					"\"$(SRCROOT)/../../CocosDenshion/third_party/blackberry/libraries/x86\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
