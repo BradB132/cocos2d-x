@@ -76,16 +76,6 @@ NoPL_FunctionValue CCTouch::evaluateFunction(const char* functionName, const NoP
 			returnVal.numberValue = getLocation().y;
 			returnVal.type = NoPL_DataType_Number;
 		}
-		else if(!strcmp(functionName, "prevX"))
-		{
-			returnVal.numberValue = getPreviousLocation().x;
-			returnVal.type = NoPL_DataType_Number;
-		}
-		else if(!strcmp(functionName, "prevY"))
-		{
-			returnVal.numberValue = getPreviousLocation().y;
-			returnVal.type = NoPL_DataType_Number;
-		}
 		else if(!strcmp(functionName, "dx"))
 		{
 			returnVal.numberValue = getLocation().x - getPreviousLocation().x;
@@ -94,6 +84,16 @@ NoPL_FunctionValue CCTouch::evaluateFunction(const char* functionName, const NoP
 		else if(!strcmp(functionName, "dy"))
 		{
 			returnVal.numberValue = getLocation().y - getPreviousLocation().y;
+			returnVal.type = NoPL_DataType_Number;
+		}
+		else if(!strcmp(functionName, "prevX"))
+		{
+			returnVal.numberValue = getPreviousLocation().x;
+			returnVal.type = NoPL_DataType_Number;
+		}
+		else if(!strcmp(functionName, "prevY"))
+		{
+			returnVal.numberValue = getPreviousLocation().y;
 			returnVal.type = NoPL_DataType_Number;
 		}
 	}
