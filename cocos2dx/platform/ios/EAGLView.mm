@@ -146,7 +146,7 @@ static EAGLView *view = 0;
             return nil;
         }
 
-        
+        self.multipleTouchEnabled = YES;
         view = self;
         
         originalRect_ = self.frame;
@@ -165,7 +165,7 @@ static EAGLView *view = 0;
 {
     if( (self = [super initWithCoder:aDecoder]) ) {
         
-        CAEAGLLayer*            eaglLayer = (CAEAGLLayer*)[self layer];
+        CAEAGLLayer* eaglLayer = (CAEAGLLayer*)[self layer];
         
         pixelformat_ = kEAGLColorFormatRGB565;
         depthFormat_ = 0; // GL_DEPTH_COMPONENT24_OES;
@@ -173,6 +173,7 @@ static EAGLView *view = 0;
         requestedSamples_ = 0;
         size_ = [eaglLayer bounds].size;
         markedText_ = nil;
+		self.multipleTouchEnabled = YES;
         
         if( ! [self setupSurfaceWithSharegroup:nil] ) {
             [self release];
@@ -406,8 +407,8 @@ static EAGLView *view = 0;
     int i = 0;
     for (UITouch *touch in touches) {
         ids[i] = (int)touch;
-        xs[i] = [touch locationInView: [touch view]].x * view.contentScaleFactor;;
-        ys[i] = [touch locationInView: [touch view]].y * view.contentScaleFactor;;
+        xs[i] = [touch locationInView: [touch view]].x * view.contentScaleFactor;
+        ys[i] = [touch locationInView: [touch view]].y * view.contentScaleFactor;
         ++i;
     }
     cocos2d::CCEGLView::sharedOpenGLView()->handleTouchesBegin(i, ids, xs, ys);
@@ -426,8 +427,8 @@ static EAGLView *view = 0;
     int i = 0;
     for (UITouch *touch in touches) {
         ids[i] = (int)touch;
-        xs[i] = [touch locationInView: [touch view]].x * view.contentScaleFactor;;
-        ys[i] = [touch locationInView: [touch view]].y * view.contentScaleFactor;;
+        xs[i] = [touch locationInView: [touch view]].x * view.contentScaleFactor;
+        ys[i] = [touch locationInView: [touch view]].y * view.contentScaleFactor;
         ++i;
     }
     cocos2d::CCEGLView::sharedOpenGLView()->handleTouchesMove(i, ids, xs, ys);
@@ -447,8 +448,8 @@ static EAGLView *view = 0;
     int i = 0;
     for (UITouch *touch in touches) {
         ids[i] = (int)touch;
-        xs[i] = [touch locationInView: [touch view]].x * view.contentScaleFactor;;
-        ys[i] = [touch locationInView: [touch view]].y * view.contentScaleFactor;;
+        xs[i] = [touch locationInView: [touch view]].x * view.contentScaleFactor;
+        ys[i] = [touch locationInView: [touch view]].y * view.contentScaleFactor;
         ++i;
     }
     cocos2d::CCEGLView::sharedOpenGLView()->handleTouchesEnd(i, ids, xs, ys);
@@ -468,8 +469,8 @@ static EAGLView *view = 0;
     int i = 0;
     for (UITouch *touch in touches) {
         ids[i] = (int)touch;
-        xs[i] = [touch locationInView: [touch view]].x * view.contentScaleFactor;;
-        ys[i] = [touch locationInView: [touch view]].y * view.contentScaleFactor;;
+        xs[i] = [touch locationInView: [touch view]].x * view.contentScaleFactor;
+        ys[i] = [touch locationInView: [touch view]].y * view.contentScaleFactor;
         ++i;
     }
     cocos2d::CCEGLView::sharedOpenGLView()->handleTouchesCancel(i, ids, xs, ys);
