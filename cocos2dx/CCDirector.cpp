@@ -121,6 +121,7 @@ bool CCDirector::init(void)
     m_pSPFLabel = NULL;
     m_pDrawsLabel = NULL;
     m_bDisplayStats = false;
+	m_bDisplayOutlines = false;
     m_uTotalFrames = m_uFrames = 0;
     m_pszFPS = new char[10];
     m_pLastUpdate = new struct cc_timeval();

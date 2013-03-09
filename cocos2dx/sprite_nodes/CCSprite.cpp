@@ -607,6 +607,10 @@ void CCSprite::draw(void)
     CC_INCREMENT_GL_DRAWS(1);
 
     CC_PROFILER_STOP_CATEGORY(kCCProfilerCategorySprite, "CCSprite - draw");
+	
+#if COCOS2D_DEBUG
+	CCNode::draw();
+#endif
 }
 
 // CCNode overrides

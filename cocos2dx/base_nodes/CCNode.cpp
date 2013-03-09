@@ -39,6 +39,10 @@ THE SOFTWARE.
 // externals
 #include "kazmath/GL/matrix.h"
 
+#if COCOS2D_DEBUG
+#include "CCDrawingPrimitives.h"
+#endif
+
 
 #if CC_NODE_RENDER_SUBPIXEL
 #define RENDER_IN_SUBPIXEL
@@ -777,6 +781,14 @@ void CCNode::sortAllChildren()
      // override me
      // Only use- this function to draw your stuff.
      // DON'T draw your stuff outside this method
+	 
+#if COCOS2D_DEBUG
+	 if(cocos2d::CCDirector::sharedDirector()->isDisplayOutlines())
+	 {
+		 ccDrawPoint(CCPoint(m_obAnchorPoint.x*m_obContentSize.width, m_obAnchorPoint.y*m_obContentSize.height));
+		 ccDrawRect(CCPoint(0,0), CCPoint(m_obContentSize.width, m_obContentSize.height));
+	 }
+#endif
  }
 
 void CCNode::visit()

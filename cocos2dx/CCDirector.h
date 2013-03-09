@@ -119,6 +119,11 @@ public:
     inline bool isDisplayStats(void) { return m_bDisplayStats; }
     /** Display the FPS on the bottom-left corner */
     inline void setDisplayStats(bool bDisplayStats) { m_bDisplayStats = bDisplayStats; }
+	
+	/** Whether or not to display debugging outlines around all nodes */
+    inline bool isDisplayOutlines(void) { return m_bDisplayOutlines; }
+    /** Display the debugging outlines around all nodes */
+    inline void setDisplayOutlines(bool bDisplayOutlines) { m_bDisplayOutlines = bDisplayOutlines; }
     
     /** seconds per frame */
     inline float getSecondsPerFrame() { return m_fSecondsPerFrame; }
@@ -359,6 +364,8 @@ protected:
     float m_fAccumDt;
     float m_fFrameRate;
     
+	bool m_bDisplayOutlines;
+	
     CCLabelTTF *m_pFPSLabel;
     CCLabelTTF *m_pSPFLabel;
     CCLabelTTF *m_pDrawsLabel;
