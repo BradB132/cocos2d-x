@@ -30,7 +30,8 @@ THE SOFTWARE.
 
 NS_CC_BEGIN
 
-CCScene::CCScene()
+CCScene::CCScene():
+m_bIsTransitioning(false)
 {
     m_bIgnoreAnchorPointForPosition = true;
     setAnchorPoint(ccp(0.5f, 0.5f));
@@ -67,6 +68,35 @@ CCScene *CCScene::create()
         CC_SAFE_DELETE(pRet);
         return NULL;
     }
+}
+
+void CCScene::onEnter()
+{
+	m_bIsTransitioning = true;
+	CCNode::onEnter();
+}
+
+void CCScene::onExit()
+{
+	m_bIsTransitioning = false;
+	CCNode::onExit();
+}
+
+void CCScene::onEnterTransitionDidFinish()
+{
+	m_bIsTransitioning = false;
+	CCNode::onEnterTransitionDidFinish();
+}
+
+void CCScene::onExitTransitionDidStart()
+{
+	m_bIsTransitioning = true;
+	CCNode::onExitTransitionDidStart();
+}
+
+bool CCScene::isTransitioning()
+{
+	return m_bIsTransitioning;
 }
 
 NS_CC_END

@@ -54,6 +54,17 @@ public:
     bool init();
 
     static CCScene *create(void);
+	
+	virtual void onEnter();
+	virtual void onExit();
+	virtual void onEnterTransitionDidFinish();
+	virtual void onExitTransitionDidStart();
+	
+	virtual bool isTransitioning();
+	
+protected:
+	
+	bool m_bIsTransitioning;
 };
 
 // end of scene group
