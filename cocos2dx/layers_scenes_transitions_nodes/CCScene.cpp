@@ -70,28 +70,9 @@ CCScene *CCScene::create()
     }
 }
 
-void CCScene::onEnter()
+void CCScene::setIsTransitioning(bool isTrans)
 {
-	m_bIsTransitioning = true;
-	CCNode::onEnter();
-}
-
-void CCScene::onExit()
-{
-	m_bIsTransitioning = false;
-	CCNode::onExit();
-}
-
-void CCScene::onEnterTransitionDidFinish()
-{
-	m_bIsTransitioning = false;
-	CCNode::onEnterTransitionDidFinish();
-}
-
-void CCScene::onExitTransitionDidStart()
-{
-	m_bIsTransitioning = true;
-	CCNode::onExitTransitionDidStart();
+	m_bIsTransitioning = isTrans;
 }
 
 bool CCScene::isTransitioning()

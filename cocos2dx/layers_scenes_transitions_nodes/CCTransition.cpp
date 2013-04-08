@@ -89,6 +89,10 @@ bool CCTransitionScene::initWithDuration(float t, CCScene *scene)
         CCDirector* pDirector = CCDirector::sharedDirector();
         pDirector->getTouchDispatcher()->setDispatchEvents(false);
         this->sceneOrder();
+		
+		//set transition states
+		m_pInScene->setIsTransitioning(true);
+		m_pOutScene->setIsTransitioning(true);
 
         return true;
     }
@@ -118,21 +122,25 @@ void CCTransitionScene::draw()
 
 void CCTransitionScene::finish()
 {
+	//reset transition states
+	m_pInScene->setIsTransitioning(false);
+	m_pOutScene->setIsTransitioning(false);
+	
     // clean up     
-     m_pInScene->setVisible(true);
-     m_pInScene->setPosition(ccp(0,0));
-     m_pInScene->setScale(1.0f);
-     m_pInScene->setRotation(0.0f);
-     m_pInScene->getCamera()->restore();
- 
-     m_pOutScene->setVisible(false);
-     m_pOutScene->setPosition(ccp(0,0));
-     m_pOutScene->setScale(1.0f);
-     m_pOutScene->setRotation(0.0f);
-     m_pOutScene->getCamera()->restore();
+	m_pInScene->setVisible(true);
+	m_pInScene->setPosition(ccp(0,0));
+	m_pInScene->setScale(1.0f);
+	m_pInScene->setRotation(0.0f);
+	m_pInScene->getCamera()->restore();
 
-    //[self schedule:@selector(setNewScene:) interval:0];
-    this->schedule(schedule_selector(CCTransitionScene::setNewScene), 0);
+	m_pOutScene->setVisible(false);
+	m_pOutScene->setPosition(ccp(0,0));
+	m_pOutScene->setScale(1.0f);
+	m_pOutScene->setRotation(0.0f);
+	m_pOutScene->getCamera()->restore();
+
+	//[self schedule:@selector(setNewScene:) interval:0];
+	this->schedule(schedule_selector(CCTransitionScene::setNewScene), 0);
 
 }
 
