@@ -569,6 +569,12 @@ void CCParticleSystem::initParticle(tCCParticle* particle)
     }    
 }
 
+void CCParticleSystem::startSystem()
+{
+	m_bIsActive = true;
+	m_fElapsed = 0;
+}
+
 void CCParticleSystem::stopSystem()
 {
     m_bIsActive = false;

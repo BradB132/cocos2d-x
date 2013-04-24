@@ -403,9 +403,11 @@ public:
     bool addParticle();
     //! Initializes a particle
     void initParticle(tCCParticle* particle);
-    //! stop emitting particles. Running particles will continue to run until they die
+    //! start emitting particles. Running particles will continue to run until they die
+	void startSystem();
+	//! stop emitting particles. Running particles will continue to run until they die
     void stopSystem();
-    //! Kill all living particles.
+	//! Kill all living particles.
     void resetSystem();
     //! whether or not the system is full
     bool isFull();
