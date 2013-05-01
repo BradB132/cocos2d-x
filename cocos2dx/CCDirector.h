@@ -146,6 +146,10 @@ public:
      */
     inline ccDirectorProjection getProjection(void) { return m_eProjection; }
     void setProjection(ccDirectorProjection kProjection);
+	
+	/** Sets a time scale which is multiplied into all dt updates */
+    inline float getTimeScale(void) { return m_fTimeScale; }
+    void setTimeScale(float newScale);
 
     /** How many frames were called since the director started */
     
@@ -396,6 +400,9 @@ protected:
 
     /* delta time since last tick to main loop */
     float m_fDeltaTime;
+	
+	/* time scale (allows for slow motion effects) */
+    float m_fTimeScale;
 
     /* whether or not the next delta time will be zero */
     bool m_bNextDeltaTimeZero;

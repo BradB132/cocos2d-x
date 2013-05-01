@@ -125,6 +125,7 @@ bool CCDirector::init(void)
     m_uTotalFrames = m_uFrames = 0;
     m_pszFPS = new char[10];
     m_pLastUpdate = new struct cc_timeval();
+	m_fTimeScale = 1.0f;
 
     // paused ?
     m_bPaused = false;
@@ -212,7 +213,7 @@ void CCDirector::drawScene(void)
     //tick before glClear: issue #533
     if (! m_bPaused)
     {
-        m_pScheduler->update(m_fDeltaTime);
+        m_pScheduler->update(m_fTimeScale*m_fDeltaTime);
     }
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -323,6 +324,11 @@ void CCDirector::setOpenGLView(CCEGLView *pobOpenGLView)
 void CCDirector::setNextDeltaTimeZero(bool bNextDeltaTimeZero)
 {
     m_bNextDeltaTimeZero = bNextDeltaTimeZero;
+}
+
+void CCDirector::setTimeScale(float newScale)
+{
+	m_fTimeScale = newScale;
 }
 
 void CCDirector::setProjection(ccDirectorProjection kProjection)
@@ -839,6 +845,11 @@ NoPL_FunctionValue CCDirector::evaluateFunction(const char* functionName, const 
 			returnVal.numberValue = m_fDeltaTime;
 			returnVal.type = NoPL_DataType_Number;
 		}
+		else if(!strcmp(functionName, "scaledDt"))
+		{
+			returnVal.numberValue = m_fTimeScale*m_fDeltaTime;
+			returnVal.type = NoPL_DataType_Number;
+		}
 		else if(!strcmp(functionName, "sizeX"))
 		{
 			returnVal.numberValue = m_obWinSizeInPoints.width;
@@ -849,6 +860,18 @@ NoPL_FunctionValue CCDirector::evaluateFunction(const char* functionName, const 
 			returnVal.numberValue = m_obWinSizeInPoints.height;
 			returnVal.type = NoPL_DataType_Number;
 		}
+		else if(!strcmp(functionName, "timeScale"))
+		{
+			returnVal.numberValue = m_fTimeScale;
+			returnVal.type = NoPL_DataType_Number;
+		}
+	}
+	else if(argc == 1 &&
+			argv[0].type == NoPL_DataType_Number &&
+			!strcmp(functionName, "setTimeScale"))
+	{
+		m_fTimeScale = argv[0].numberValue;
+		returnVal.type = NoPL_DataType_Void;
 	}
 	
 	if(returnVal.type == NoPL_DataType_Uninitialized)
